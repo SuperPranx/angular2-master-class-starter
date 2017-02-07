@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ContactsService } from './contacts.service';
 
 import { ContactsAppComponent } from './contacts.component';
 
@@ -12,7 +13,8 @@ import { ContactsAppComponent } from './contacts.component';
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot()
   ],
-  bootstrap: [ContactsAppComponent]
+  bootstrap: [ContactsAppComponent],
+  providers: [ContactsService]
 })
 export class ContactsModule {
 
