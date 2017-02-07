@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 import { ContactsService } from './contacts.service';
 import { APP_ROUTES } from './app.routes';
 
@@ -16,7 +17,8 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     BrowserModule,
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    HttpModule
   ],
   bootstrap: [ContactsAppComponent],
   providers: [ContactsService]

@@ -11,14 +11,17 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[];
   
-  constructor(private contactsService: ContactsService) {}
+  constructor(private contactsService: ContactsService) {
+    
+  }
   
   trackById(index:number, contact:Contact) {
     return contact.id;
   }
   
   ngOnInit() {
-    this.contacts = this.contactsService.getContacts();
+    this.contactsService.getContacts()
+      .subscribe(contacts => this.contacts = contacts);
   }
 
 }
