@@ -12,15 +12,14 @@ export class ContactsService {
   constructor(private http: Http) {}
   
   getContacts() {
-    return this.http.get(this.API_ENDPOINT + "/api/contacts")
+    return this.http.get(`${this.API_ENDPOINT}/api/contacts`)
       .map(res => res.json())
       .map(data => data.items);
   }
   
   getContact(id:String) {
-    return this.http.get(this.API_ENDPOINT + "/api/contacts/" + id)
+    return this.http.get(`${this.API_ENDPOINT}/api/contacts/${id}`)
       .map(res => res.json())
       .map(data => data.item);
   }
 }
-0
