@@ -17,7 +17,7 @@ export class ContactsService {
       .map(data => data.items);
   }
   
-  getContact(id:String) {
+  getContact(id: string) {
     return this.http.get(`${this.API_ENDPOINT}/contacts/${id}`)
       .map(res => res.json())
       .map(data => data.item);
@@ -25,5 +25,11 @@ export class ContactsService {
   
   updateContact(contact: Contact) {
     return this.http.put(`${this.API_ENDPOINT}/contacts/${contact.id}`, contact);
+  }
+  
+  search(term: string) {
+    return this.http.get(`${this.API_ENDPOINT}/search?text=${term}`)
+      .map(res => res.json())
+      .map(data => data.items);
   }
 }
