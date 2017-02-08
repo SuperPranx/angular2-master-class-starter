@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
+import { Observable } from 'rxjs/Observable'
 
 @Component({
   selector: 'trm-contact-list',
@@ -9,7 +10,7 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactListComponent implements OnInit {
 
-  contacts: Contact[];
+  contacts: Observable<Array<Contact>>;
   
   constructor(private contactsService: ContactsService) {
     
@@ -20,8 +21,7 @@ export class ContactListComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.contactsService.getContacts()
-      .subscribe(contacts => this.contacts = contacts);
+    this.contacts = this.contactsService.getContacts();
   }
 
 }
