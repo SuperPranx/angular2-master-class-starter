@@ -12,9 +12,10 @@ import { ContactsAppComponent } from './contacts.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactEditorComponent } from './contact-editor/contact-editor.component';
+import { ContactDetailViewComponent } from './contact-detail-view/contact-detail-view.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent],
+  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent],
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),
