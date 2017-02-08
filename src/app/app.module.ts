@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ContactsService } from './contacts.service';
+import { EventBusService } from './event-bus.service';
 import { APP_ROUTES } from './app.routes';
 
 import { ContactsAppComponent } from './contacts.component';
@@ -15,9 +16,10 @@ import { ContactEditorComponent } from './contact-editor/contact-editor.componen
 import { ContactDetailViewComponent } from './contact-detail-view/contact-detail-view.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
+import { EventBusArgsComponent } from './event-bus-args/event-bus-args.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent],
+  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, EventBusArgsComponent],
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),
@@ -27,7 +29,7 @@ import { TabComponent } from './tabs/tab/tab.component';
     HttpModule
   ],
   bootstrap: [ContactsAppComponent],
-  providers: [ContactsService]
+  providers: [ContactsService, EventBusService]
 })
 export class ContactsModule {
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
-import { Observable } from 'rxjs/Observable'
-import { Subject } from 'rxjs/Subject'
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { EventBusService } from '../event-bus.service';
 
 import 'rxjs/add/operator/debounceTime'
 import 'rxjs/add/operator/distinctUntilChanged'
@@ -19,7 +20,8 @@ export class ContactListComponent implements OnInit {
   contacts: Observable<Array<Contact>>;
   terms$: Subject<string> = new Subject<string>();
   
-  constructor(private contactsService: ContactsService) {}
+  constructor(private contactsService: ContactsService,
+              private eventBusService: EventBusService) {}
   
   trackById(index:number, contact:Contact) {
     return contact.id;
@@ -30,6 +32,7 @@ export class ContactListComponent implements OnInit {
                                .distinctUntilChanged()
                                .switchMap(term => this.contactsService.search(term))
                                .merge(this.contactsService.getContacts());
+    this.eventBusService.emit('appTitleChange', 'Contacts');
   }
 
 }

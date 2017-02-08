@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { EventBusService } from './event-bus.service';
 
 @Component({
   selector: 'trm-contacts-app',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./contacts.component.scss']
 })
 
-export class ContactsAppComponent {
+export class ContactsAppComponent implements OnInit {
   
+  title: string = "Main App";
+  constructor(private eventBusService: EventBusService) {}
+  
+  ngOnInit() {
+    this.eventBusService.observe('appTitleChange')
+                        .subscribe(title => this.title = title);
+  }
 }

@@ -4,6 +4,7 @@ import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
 import { TabsComponent } from '../tabs/tabs/tabs.component'
 import { TabComponent } from '../tabs/tab/tab.component'
+import { EventBusService } from '../event-bus.service';
 
 @Component({
   selector: 'trm-contact-editor',
@@ -16,12 +17,16 @@ export class ContactEditorComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private contactsService: ContactsService,
-              private router: Router) { }
+              private router: Router,
+              private eventBusService: EventBusService) { }
 
   ngOnInit() {
     let id = this.activatedRoute.snapshot.params['id'];
     this.contactsService.getContact(id)
-      .subscribe(contact => this.contact = contact);
+      .subscribe(contact => {
+        this.contact = contact;
+        this.eventBusService.emit('appTitleChange', 'Edit ' + contact.name + '\'s Details');
+      });
   }
   
   save(contact: Contact) {
