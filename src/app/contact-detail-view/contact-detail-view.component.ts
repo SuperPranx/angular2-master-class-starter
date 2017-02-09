@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../models/contact';
-import { ContactsService } from '../contacts.service';
 import { EventBusService } from '../event-bus.service';
 
 @Component({
@@ -13,11 +12,11 @@ export class ContactDetailViewComponent implements OnInit {
 
   contact: Contact;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private contactsService: ContactsService, private eventBusService: EventBusService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private eventBusService: EventBusService) { }
 
   ngOnInit() {
-    this.activatedRoute.params
-        .switchMap(params => this.contactsService.getContact(params['id']))
+    this.activatedRoute.data
+        .map(data => data['contact'])
         .subscribe(contact => this.contact = contact);
   }
   

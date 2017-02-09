@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { ContactsService } from './contacts.service';
 import { EventBusService } from './event-bus.service';
+import { ContactsResolver } from './shared/contacts.resolver';
 import { APP_ROUTES } from './app.routes';
 
 import { ContactsAppComponent } from './contacts.component';
@@ -31,7 +32,7 @@ import { AboutComponent } from './about/about.component';
     HttpModule
   ],
   bootstrap: [ContactsAppComponent],
-  providers: [ContactsService, EventBusService]
+  providers: [ContactsService, EventBusService, ContactsResolver]
 })
 export class ContactsModule {
 
