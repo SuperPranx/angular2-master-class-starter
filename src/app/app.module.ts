@@ -19,10 +19,9 @@ import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { EventBusArgsComponent } from './event-bus-args/event-bus-args.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
-import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, EventBusArgsComponent, ContactsDashboardComponent, AboutComponent],
+  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, EventBusArgsComponent, ContactsDashboardComponent],
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),
