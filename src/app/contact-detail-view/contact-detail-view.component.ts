@@ -16,12 +16,9 @@ export class ContactDetailViewComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private contactsService: ContactsService, private eventBusService: EventBusService) { }
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.params['id'];
-    this.contactsService.getContact(id)
-      .subscribe(contact => {
-        this.contact = contact;
-        this.eventBusService.emit('appTitleChange', contact.name + ' Details');
-      });
+    this.activatedRoute.params
+        .switchMap(params => this.contactsService.getContact(params['id']))
+        .subscribe(contact => this.contact = contact);
   }
   
   navigateToEditor(contact: Contact) {
