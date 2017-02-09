@@ -19,9 +19,10 @@ import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
+import { EmailValidatorDirective } from './email-validator.directive';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, ContactsDashboardComponent, ContactsCreatorComponent],
+  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, ContactsDashboardComponent, ContactsCreatorComponent, EmailValidatorDirective],
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),
@@ -31,7 +32,11 @@ import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.co
     HttpModule
   ],
   bootstrap: [ContactsAppComponent],
-  providers: [ContactsService, EventBusService, ContactsResolver]
+  providers: [
+    ContactsService,
+    EventBusService,
+    ContactsResolver
+  ]
 })
 export class ContactsModule {
 

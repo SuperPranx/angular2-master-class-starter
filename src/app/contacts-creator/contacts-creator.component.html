@@ -19,8 +19,13 @@
               </template>
             </md-hint>
           </md-input-container>
-          <md-input-container fxFlex>
-            <input md-input placeholder="Email" name="email" ngModel>
+          <md-input-container fxFlex [dividerColor]="email.valid ? 'primary':'warn'">
+            <input trmValidateEmail md-input placeholder="Email" name="email" #email="ngModel" ngModel>
+            <md-hint align="end" *ngIf="!email.valid && !email.pristine">
+              <template [ngIf]="!email.valid">
+                The email format must be valid
+              </template>
+            </md-hint>
           </md-input-container>
           <md-input-container fxFlex>
             <input md-input placeholder="Birthday" name="birthday" type="date" ngModel>
