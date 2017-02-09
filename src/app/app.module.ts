@@ -17,11 +17,11 @@ import { ContactEditorComponent } from './contact-editor/contact-editor.componen
 import { ContactDetailViewComponent } from './contact-detail-view/contact-detail-view.component';
 import { TabsComponent } from './tabs/tabs/tabs.component';
 import { TabComponent } from './tabs/tab/tab.component';
-import { EventBusArgsComponent } from './event-bus-args/event-bus-args.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
+import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, EventBusArgsComponent, ContactsDashboardComponent],
+  declarations: [ContactsAppComponent, ContactListComponent, ContactDetailComponent, ContactEditorComponent, ContactDetailViewComponent, TabsComponent, TabComponent, ContactsDashboardComponent, ContactsCreatorComponent],
   imports: [
     BrowserModule,
     MaterialModule.forRoot(),

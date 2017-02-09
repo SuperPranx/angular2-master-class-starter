@@ -32,4 +32,9 @@ export class ContactsService {
       .map(res => res.json())
       .map(data => data.items);
   }
+  
+  addContact(contact: Contact) {
+    console.log(contact);
+    return this.http.post(`${this.API_ENDPOINT}/contacts`, contact);
+  }
 }

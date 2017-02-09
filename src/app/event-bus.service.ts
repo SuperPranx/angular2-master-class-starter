@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Subject } from 'rxjs/Subject';
-import { EventBusArgsComponent } from './event-bus-args/event-bus-args.component';
+import { EventBusArgs } from './event-bus-args/event-bus-args.component';
 
 @Injectable()
 export class EventBusService {
 
-  private messages$ = new  Subject<EventBusArgsComponent>();
+  private messages$ = new Subject<EventBusArgs>();
 
   constructor() { }
 

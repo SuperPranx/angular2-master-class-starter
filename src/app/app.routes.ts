@@ -4,6 +4,7 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 import { ContactDetailViewComponent } from './contact-detail-view/contact-detail-view.component';
 import { ContactEditorComponent } from './contact-editor/contact-editor.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
+import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsResolver } from './shared/contacts.resolver';
 
@@ -13,6 +14,7 @@ export const APP_ROUTES: Routes = [
     component: ContactsDashboardComponent,
     children: [
       { path: '', redirectTo: 'contacts/0', pathMatch: 'full' },
+      { path: 'contacts/new', component: ContactsCreatorComponent },
       { path: 'contacts/:id', component: ContactDetailViewComponent, resolve: {contact: ContactsResolver} },
       { path: 'contact/:id/edit', component: ContactEditorComponent, resolve: {contact: ContactsResolver} }
     ]
